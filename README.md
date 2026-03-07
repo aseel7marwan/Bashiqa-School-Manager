@@ -98,11 +98,6 @@ The system supports **Arabic (RTL)** and **English** interfaces, features a role
 
 ---
 
-## 📸 Screenshots
-
-> _Visual overview of the school portal and admin dashboard._
-> _(Add your image links here using HTML <img width="800" src="..." /> tags)_
-
 ## ⚖️ License & Intellectual Property
 
 > **⚠️ Proprietary / Showcase Only**
