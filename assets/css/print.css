@@ -1,0 +1,459 @@
+/**
+ * Print Styles - أنماط الطباعة
+ * تصميم احترافي للتقارير عند الطباعة
+ */
+
+@media print {
+
+    /* إخفاء العناصر غير الضرورية */
+    .sidebar,
+    .sidebar-overlay,
+    .sidebar-toggle-btn,
+    .navbar,
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .btn-success,
+    .btn-warning,
+    .modal,
+    .modal-overlay,
+    .page-header .btn,
+    .filter-card,
+    .filters,
+    .actions-column,
+    .no-print,
+    nav,
+    aside,
+    .sidebar-footer,
+    .theme-toggle,
+    .lang-toggle,
+    footer:not(.print-footer),
+    .alert,
+    input,
+    select,
+    textarea,
+    form:not(.print-form) {
+        display: none !important;
+    }
+
+    /* إعادة تعيين الخلفية */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-family: 'Arial', 'Tahoma', sans-serif;
+        font-size: 12pt;
+        line-height: 1.5;
+        margin: 0;
+        padding: 15mm;
+        direction: rtl;
+    }
+
+    /* المحتوى الرئيسي - ضمان ظهور كل العناصر */
+    .app-layout {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .main-content {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+    }
+
+    .page-content {
+        display: block !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .topbar {
+        display: none !important;
+    }
+
+    .app-container,
+    .content-area {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* ضمان ظهور جميع الحاويات */
+    .attendance-grid,
+    .attendance-header,
+    .attendance-content,
+    .grades-grid,
+    .grades-content,
+    .reports-content,
+    .schedule-container,
+    .table-responsive,
+    .data-table,
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .stat-cards,
+    .stats-grid {
+        display: block !important;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* إخفاء الـ forms و filters عند الطباعة */
+    .attendance-filters,
+    .filter-form,
+    .attendance-actions,
+    .attendance-legend {
+        display: none !important;
+    }
+
+    /* رأس التقرير */
+    .print-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 3px double #333;
+    }
+
+    .print-header h1 {
+        font-size: 18pt;
+        margin: 0 0 5px 0;
+        color: #000 !important;
+    }
+
+    .print-header .school-name {
+        font-size: 16pt;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .print-header .report-title {
+        font-size: 14pt;
+        color: #333 !important;
+    }
+
+    .print-header .report-date {
+        font-size: 10pt;
+        color: #666 !important;
+        margin-top: 5px;
+    }
+
+    /* عناوين الصفحات */
+    .page-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #333;
+    }
+
+    .page-header h1 {
+        font-size: 16pt;
+        margin: 0;
+    }
+
+    .page-header p {
+        font-size: 10pt;
+        margin: 5px 0 0;
+    }
+
+    /* البطاقات */
+    .card {
+        display: block !important;
+        border: 1px solid #ccc !important;
+        margin-bottom: 15px;
+        page-break-inside: avoid;
+    }
+
+    .card-header {
+        display: block !important;
+        background: #f0f0f0 !important;
+        border-bottom: 1px solid #ccc !important;
+        padding: 8px 15px !important;
+    }
+
+    .card-header h3 {
+        font-size: 12pt;
+        margin: 0;
+    }
+
+    .card-body {
+        display: block !important;
+        padding: 15px !important;
+    }
+
+    /* الجداول */
+    table {
+        display: table !important;
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 10pt;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid #333 !important;
+    }
+
+    th {
+        background: #e0e0e0 !important;
+        font-weight: bold;
+        padding: 8px 10px;
+        text-align: center;
+    }
+
+    td {
+        padding: 6px 10px;
+        text-align: center;
+    }
+
+    tr:nth-child(even) {
+        background: #f9f9f9 !important;
+    }
+
+    /* الإحصائيات */
+    .stats-grid,
+    .stat-cards {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .stat-card {
+        flex: 1;
+        min-width: 120px;
+        border: 1px solid #ccc !important;
+        padding: 10px;
+        text-align: center;
+        background: #f9f9f9 !important;
+    }
+
+    .stat-card .stat-value,
+    .stat-card h3 {
+        font-size: 18pt;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .stat-card .stat-label,
+    .stat-card p {
+        font-size: 9pt;
+        margin: 5px 0 0;
+    }
+
+    .stat-card .stat-icon {
+        display: none;
+    }
+
+    /* الشارات */
+    .badge {
+        border: 1px solid #333 !important;
+        padding: 2px 8px;
+        border-radius: 3px;
+        font-size: 9pt;
+    }
+
+    .badge-success {
+        background: #d4edda !important;
+    }
+
+    .badge-danger {
+        background: #f8d7da !important;
+    }
+
+    .badge-warning {
+        background: #fff3cd !important;
+    }
+
+    .badge-info {
+        background: #d1ecf1 !important;
+    }
+
+    /* تذييل الطباعة */
+    .print-footer {
+        display: block !important;
+        position: fixed;
+        bottom: 10mm;
+        left: 15mm;
+        right: 15mm;
+        text-align: center;
+        font-size: 9pt;
+        color: #666 !important;
+        border-top: 1px solid #ccc;
+        padding-top: 5px;
+    }
+
+    /* فواصل الصفحات */
+    .page-break {
+        page-break-before: always;
+    }
+
+    .no-break {
+        page-break-inside: avoid;
+    }
+
+    /* الشبكة */
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        display: block !important;
+    }
+
+    .grid>*,
+    .grid-2>*,
+    .grid-3>*,
+    .grid-4>* {
+        margin-bottom: 10px;
+    }
+
+    /* إخفاء الروابط */
+    a {
+        text-decoration: none !important;
+        color: black !important;
+    }
+
+    a[href]:after {
+        content: none !important;
+    }
+
+    /* حضور التلاميذ */
+    .attendance-cell.present {
+        background: #d4edda !important;
+    }
+
+    .attendance-cell.absent {
+        background: #f8d7da !important;
+    }
+
+    .attendance-cell.late {
+        background: #fff3cd !important;
+    }
+
+    /* بطاقة الطالب/المعلم */
+    .profile-card {
+        border: 2px solid #333 !important;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 120px;
+        border: 1px solid #333 !important;
+    }
+
+    /* معلومات مفصلة */
+    .info-row {
+        display: flex;
+        border-bottom: 1px dotted #ccc;
+        padding: 5px 0;
+    }
+
+    .info-label {
+        font-weight: bold;
+        min-width: 150px;
+    }
+
+    .info-value {
+        flex: 1;
+    }
+}
+
+/* زر الطباعة العام */
+.print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* رأس تقرير للطباعة */
+.print-report-header {
+    display: none;
+}
+
+@media print {
+    .print-report-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .print-report-header .logo {
+        font-size: 40pt;
+        margin-bottom: 10px;
+    }
+
+    .print-report-header .school-name {
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .print-report-header .ministry {
+        font-size: 10pt;
+        color: #666 !important;
+        margin-bottom: 10px;
+    }
+
+    .print-report-header .report-title {
+        font-size: 14pt;
+        font-weight: bold;
+        padding: 10px;
+        border: 2px solid #333;
+        display: inline-block;
+        margin: 10px 0;
+    }
+
+    /* Print Footer - تذييل الطباعة */
+    .print-report-footer {
+        display: block !important;
+        position: fixed;
+        bottom: 10mm;
+        left: 15mm;
+        right: 15mm;
+        text-align: center;
+        font-size: 9pt;
+        color: #666 !important;
+        border-top: 1px solid #ccc;
+        padding-top: 5px;
+    }
+
+    /* Hide regular footer when printing */
+    .page-footer {
+        display: none !important;
+    }
+}
+
+/* Hide print footer on screen */
+.print-report-footer {
+    display: none;
+}

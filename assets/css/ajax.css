@@ -1,0 +1,492 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * School Manager - AJAX Components Styles
+ * أنماط المكونات التفاعلية
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Toast Notifications - رسائل الإشعارات
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.ajax-toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    z-index: 10000;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    backdrop-filter: blur(10px);
+}
+
+.ajax-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 12px;
+}
+
+.toast-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* Toast Types */
+.ajax-toast-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.ajax-toast-success .toast-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ajax-toast-error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.ajax-toast-error .toast-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ajax-toast-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.ajax-toast-warning .toast-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ajax-toast-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.ajax-toast-info .toast-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Loading Indicators - مؤشرات التحميل
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: currentColor;
+    animation: spin 0.8s linear infinite;
+}
+
+.spinner-large {
+    width: 48px;
+    height: 48px;
+    border-width: 4px;
+    border-color: rgba(59, 130, 246, 0.2);
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Loading Overlay */
+#ajax-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+#ajax-loading-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-content {
+    background: white;
+    padding: 40px 60px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.loading-content p {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #64748b;
+}
+
+/* Button Loading State */
+.ajax-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Confirm Modal - نافذة التأكيد
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.ajax-confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ajax-confirm-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirm-content {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.ajax-confirm-modal.show .confirm-content {
+    transform: scale(1);
+}
+
+.confirm-icon {
+    font-size: 48px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.confirm-content h3 {
+    font-size: 20px;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.confirm-content p {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.confirm-buttons .btn {
+    min-width: 100px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.confirm-buttons .btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: none;
+}
+
+.confirm-buttons .btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.confirm-buttons .btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+}
+
+.confirm-buttons .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Table Row Animations - حركات صفوف الجدول
+   ═══════════════════════════════════════════════════════════════════════════════ */
+table tbody tr {
+    transition: all 0.3s ease;
+}
+
+table tbody tr.highlight-new {
+    animation: highlightNew 2s ease;
+}
+
+@keyframes highlightNew {
+    0% {
+        background-color: rgba(16, 185, 129, 0.3);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+table tbody tr.highlight-update {
+    animation: highlightUpdate 1.5s ease;
+}
+
+@keyframes highlightUpdate {
+    0% {
+        background-color: rgba(59, 130, 246, 0.3);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Quick Actions - الإجراءات السريعة
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.quick-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+
+.quick-action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.quick-action-btn.edit {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.quick-action-btn.edit:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.quick-action-btn.delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.quick-action-btn.delete:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.quick-action-btn.view {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.quick-action-btn.view:hover {
+    background: #10b981;
+    color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Skeleton Loading - تحميل الهيكل العظمي
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+.skeleton-text {
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.skeleton-text:last-child {
+    width: 70%;
+}
+
+.skeleton-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.skeleton-button {
+    width: 100px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Live Badge - شارة الحالة الحية
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.live-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+.live-badge.online {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.live-badge.online::before {
+    background: #10b981;
+}
+
+.live-badge.offline {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.live-badge.offline::before {
+    background: #6b7280;
+    animation: none;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Dark Mode Support - دعم الوضع الداكن
+   ═══════════════════════════════════════════════════════════════════════════════ */
+[data-theme="dark"] .ajax-confirm-modal .confirm-content,
+[data-theme="dark"] .loading-content {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .confirm-content h3 {
+    color: #f1f5f9;
+}
+
+[data-theme="dark"] .confirm-content p {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .confirm-buttons .btn-secondary {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .confirm-buttons .btn-secondary:hover {
+    background: #475569;
+}
+
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(90deg, #334155 25%, #475569 50%, #334155 75%);
+    background-size: 200% 100%;
+}
