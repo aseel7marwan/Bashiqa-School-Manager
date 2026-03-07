@@ -92,8 +92,7 @@ The system supports **Arabic (RTL)** and **English** interfaces, features a role
    - The installer will automatically create the database schema and a default admin account
 
 5. **Login**
-   - **Username:** `admin`
-   - **Password:** `password`
+   - Use the credentials created during installation
    - ⚠️ _Change the default password immediately after first login_
 
 ---
