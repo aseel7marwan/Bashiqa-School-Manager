@@ -106,4 +106,4 @@ _Full-Stack Softwareentwickler | Experte für DSGVO-konforme Plattformen & Nativ
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aseel-marwan-kheder-36b17033b/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aseel7marwan)
 
-📧 **Email:** [aseel.marwan.kheder@gmail.com](mailto:aseel.marwan.kheder@gmail.com)
+📧 **Email:** [kontakt@aseelmarwan.de](mailto:kontakt@aseelmarwan.de)
