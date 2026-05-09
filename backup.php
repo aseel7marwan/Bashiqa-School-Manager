@@ -419,9 +419,11 @@ require_once __DIR__ . '/views/components/header.php';
             <button type="submit" name="action" value="backup_selected" class="btn-backup">
                 💾 إنشاء نسخة احتياطية للعناصر المحددة
             </button>
+            <?php /* زر النسخ الاحتياطي الشامل - مخفي حالياً
             <button type="submit" name="action" value="backup_all" class="btn-backup" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
                 📦 نسخ احتياطي شامل
             </button>
+            */ ?>
         </div>
         <div style="color: var(--text-secondary); font-size: 0.9rem;">
             ⓘ يتم حفظ النسخ الاحتياطية في مجلد <code>/backups</code>

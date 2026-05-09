@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🏫 Bashiqa High School Management System
+# 🏫 Bashiqa School Manager
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -26,7 +26,7 @@ A digital platform designed for **Bashiqa High School for Boys** to manage schoo
 
 ## 📖 About The Project
 
-The **Bashiqa High School Management System** is a comprehensive web-based platform built to serve the Bashiqa High School for Boys community. It digitalizes administrative tasks, streamlines daily operations, and provides a centralized hub for managing students, teachers, grades, attendance, and school events.
+The **Bashiqa School Manager** (Bashiqa High School Management System) is a comprehensive web-based platform built to serve the Bashiqa High School for Boys community. It digitalizes administrative tasks, streamlines daily operations, and provides a centralized hub for managing students, teachers, grades, attendance, and school events.
 
 The system supports **Arabic (RTL)** and **English** interfaces, features a role-based access control system with four distinct roles (Admin, Assistant, Teacher, Student), and is designed to be fully responsive for mobile devices.
 
@@ -78,18 +78,12 @@ The system supports **Arabic (RTL)** and **English** interfaces, features a role
    - Place the project folder in your web server root (e.g., `htdocs/`)
 
 3. **Configure the database**
-   - Copy `config/database.php.example` or create `config/database.php`
-   - Fill in your database credentials:
-     ```php
-     define('DB_HOST', 'localhost');
-     define('DB_NAME', 'school_db');
-     define('DB_USER', 'root');
-     define('DB_PASS', '');
-     ```
+   - Copy `.env.example` to `.env` in the project root
+   - Set `DB_HOST`, `DB_NAME`, `DB_USER`, and `DB_PASS` (credentials are not stored in PHP source)
 
 4. **Run the installer**
-   - Navigate to `http://localhost/School-Manager/install`
-   - The installer will automatically create the database schema and a default admin account
+   - Navigate to `http://localhost/School-Manager/install.php`
+   - The installer imports `database/structure_only.sql`, writes `.env`, and creates a default admin account (change the password immediately)
 
 ---
 

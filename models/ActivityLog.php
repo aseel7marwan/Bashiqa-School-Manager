@@ -10,6 +10,56 @@ require_once __DIR__ . '/../config/database.php';
 
 class ActivityLog {
     private $conn;
+
+    /**
+     * Whether a payload key should never be stored verbatim.
+     */
+    private static function isSensitiveKey($key): bool
+    {
+        $k = (string)$key;
+        return (bool)preg_match('/password|plain_password|password_hash|token|session|csrf|secret|api_key|phpsessid|مرور/ui', $k);
+    }
+
+    /** For UI: hide values for sensitive field labels in log JSON */
+    public static function shouldRedactActivityKey($key): bool
+    {
+        return self::isSensitiveKey($key);
+    }
+
+    /**
+     * Strip secrets from associative payloads before JSON storage.
+     *
+     * @param mixed $payload
+     * @return mixed
+     */
+    private static function sanitizePayload($payload)
+    {
+        if (!is_array($payload)) {
+            return $payload;
+        }
+        $out = [];
+        foreach ($payload as $key => $value) {
+            if (self::isSensitiveKey($key)) {
+                $out[$key] = '[redacted]';
+                continue;
+            }
+            $out[$key] = is_array($value) ? self::sanitizePayload($value) : $value;
+        }
+        return $out;
+    }
+
+    /**
+     * Remove obvious password patterns from free-text log lines.
+     */
+    private static function sanitizeDetails(?string $details): ?string
+    {
+        if ($details === null || $details === '') {
+            return $details;
+        }
+        $out = preg_replace('/كلمة\s*المرور\s*[:：]\s*\S+/u', 'كلمة المرور: [redacted]', $details) ?? $details;
+        $out = preg_replace('/(password|plain_password)\s*[:=]\s*\S+/iu', '$1=[redacted]', $out) ?? $out;
+        return $out;
+    }
     
     public function __construct() {
         $this->conn = getConnection();
@@ -32,6 +82,10 @@ class ActivityLog {
         if (!isset($_SESSION['user_id'])) {
             return false;
         }
+
+        $oldValue = self::sanitizePayload($oldValue);
+        $newValue = self::sanitizePayload($newValue);
+        $details = self::sanitizeDetails($details);
         
         try {
             // التحقق من وجود الأعمدة الجديدة

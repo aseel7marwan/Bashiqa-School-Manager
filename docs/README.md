@@ -233,7 +233,7 @@ School-Manager/
 │   └── run_backup.bat
 │
 ├── 📁 database/                # قاعدة البيانات
-│   └── unified_schema.sql      # ملف واحد شامل (16 جدول + فهارس + حساب المدير)
+│   └── structure_only.sql      # هيكل الجداول (16 جدول + فهارس، بدون بيانات تعريفية)
 │
 ├── 📁 docs/                    # التوثيق (4 ملفات)
 │   ├── README.md
@@ -296,7 +296,8 @@ School-Manager/
 
 1️⃣ **نسخ المشروع**
 ```bash
-C:\xampp\htdocs\School-Manager
+git clone https://github.com/aseel7marwan/School-Manager.git
+cd School-Manager
 ```
 
 2️⃣ **تشغيل XAMPP**
@@ -356,7 +357,7 @@ http://localhost/School-Manager/login
 <summary><b>❓ صفحة بيضاء أو Error 500</b></summary>
 
 1. تأكد من تفعيل mod_rewrite
-2. راجع سجل الأخطاء: `C:\xampp\apache\logs\error.log`
+2. راجع سجل أخطاء Apache (مثال XAMPP: `apache/logs/error.log` داخل مجلد التثبيت)
 
 </details>
 
@@ -364,7 +365,7 @@ http://localhost/School-Manager/login
 <summary><b>❓ خطأ في الاتصال بقاعدة البيانات</b></summary>
 
 1. تأكد من تشغيل MySQL
-2. راجع `config/database.php`
+2. راجع ملف `.env` وقيم `DB_*`
 
 </details>
 

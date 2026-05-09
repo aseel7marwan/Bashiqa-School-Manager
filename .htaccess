@@ -41,6 +41,10 @@ RewriteRule ^([^/]+)/([^/]+)/?$ $1/$2.php [L]
 
 RedirectMatch 403 ^/backups/.*$
 RedirectMatch 403 ^/config/.*$
+RedirectMatch 403 ^/cron/.*$
+RedirectMatch 403 ^/docs/.*$
+RedirectMatch 403 ^/includes/.*$
+RedirectMatch 403 ^/models/.*$
 
 # PHP Settings
 <IfModule mod_php7.c>

@@ -33,10 +33,7 @@
 
 ### الخطوة 2: نسخ المشروع
 
-```
-انسخ مجلد المشروع إلى:
-C:\xampp\htdocs\School-Manager
-```
+انسخ مجلد المشروع إلى مجلد جذر الويب لديك (مثلاً `htdocs` في XAMPP) تحت اسم `School-Manager`.
 
 ### الخطوة 3: تشغيل الخدمات
 
@@ -55,35 +52,12 @@ http://localhost/School-Manager/install.php
 **الخيار 2: التثبيت اليدوي**
 1. افتح phpMyAdmin: `http://localhost/phpmyadmin`
 2. أنشئ قاعدة بيانات: `school_manager`
-3. استورد: `database/unified_schema.sql`
+3. استورد: `database/structure_only.sql`
 
 ### الخطوة 5: إعداد الاتصال
 
-أنشئ ملف `config/database.php`:
-
-```php
-<?php
-function getConnection() {
-    static $conn = null;
-    if ($conn === null) {
-        try {
-            $conn = new PDO(
-                "mysql:host=localhost;dbname=school_manager;charset=utf8mb4",
-                "root",        // اسم المستخدم
-                "",            // كلمة المرور (فارغة في XAMPP)
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
-                ]
-            );
-        } catch (PDOException $e) {
-            die("خطأ في الاتصال: " . $e->getMessage());
-        }
-    }
-    return $conn;
-}
-```
+1. انسخ `.env.example` إلى `.env` في جذر المشروع.
+2. عبّأ المتغيرات `DB_HOST` و `DB_NAME` و `DB_USER` و `DB_PASS` (لا تُخزَّن في `config/database.php`؛ الملف المرفوع يقرأ من `.env` فقط).
 
 ### الخطوة 6: تسجيل الدخول
 
@@ -91,9 +65,9 @@ function getConnection() {
 افتح في المتصفح:
 http://localhost/School-Manager/login
 
-الحساب الافتراضي:
+إذا أنشأت المدير عبر install.php:
 اسم المستخدم: admin
-كلمة المرور: admin123
+كلمة المرور الافتراضية للتطوير: password (يُنصح بتغييرها فوراً)
 ```
 
 ---
@@ -120,34 +94,17 @@ http://localhost/School-Manager/login
 
 1. افتح phpMyAdmin
 2. اختر قاعدة البيانات
-3. استورد `database/unified_schema.sql`
+3. استورد `database/structure_only.sql`
 
 ### الخطوة 4: تعديل إعدادات الاتصال
 
-عدّل `config/database.php`:
+أنشئ ملف `.env` في جذر المشروع (من `.env.example`) واضبط `DB_*` — لا تضع كلمات المرور داخل ملفات PHP المرفوعة.
 
-```php
-<?php
-function getConnection() {
-    static $conn = null;
-    if ($conn === null) {
-        try {
-            $conn = new PDO(
-                "mysql:host=localhost;dbname=اسم_قاعدة_البيانات;charset=utf8mb4",
-                "اسم_المستخدم",
-                "كلمة_المرور",
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                    PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
-                ]
-            );
-        } catch (PDOException $e) {
-            die("خطأ في الاتصال");
-        }
-    }
-    return $conn;
-}
+```env
+DB_HOST=localhost
+DB_NAME=اسم_قاعدة_البيانات
+DB_USER=اسم_المستخدم
+DB_PASS=كلمة_المرور
 ```
 
 ### الخطوة 5: تفعيل HTTPS
@@ -167,7 +124,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 ⚠️ **مهم جداً!** غيّر كلمة المرور الافتراضية فوراً:
 
-1. سجّل الدخول بـ admin/admin123
+1. سجّل الدخول بحساب المدير (مثلاً بعد install.php: admin / password) ثم غيّرها
 2. اذهب إلى إدارة المستخدمين
 3. عدّل كلمة مرور المدير
 
@@ -200,7 +157,7 @@ rm install.php
 
 **الحل:**
 1. تأكد من تفعيل mod_rewrite في Apache
-2. راجع سجل الأخطاء: `C:\xampp\apache\logs\error.log`
+2. راجع سجل أخطاء Apache (مثال: مجلد `logs` داخل تثبيت Apache أو XAMPP)
 3. تأكد من صحة `.htaccess`
 
 ### ❌ خطأ في الاتصال بقاعدة البيانات
@@ -212,7 +169,7 @@ rm install.php
 
 **الحل:**
 1. شغّل MySQL من XAMPP
-2. راجع `config/database.php`
+2. راجع ملف `.env` وقيم `DB_*`
 3. تأكد من إنشاء قاعدة البيانات
 
 ### ❌ Clean URLs لا تعمل

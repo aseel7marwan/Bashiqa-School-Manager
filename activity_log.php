@@ -572,7 +572,7 @@ include 'views/components/header.php';
                                             <?php if (!empty($value)): ?>
                                             <div class="change-row">
                                                 <span class="change-label"><?= htmlspecialchars($key) ?>:</span>
-                                                <span class="change-value"><?= htmlspecialchars($value) ?></span>
+                                                <span class="change-value"><?= ActivityLog::shouldRedactActivityKey($key) ? '[redacted]' : htmlspecialchars((string)$value) ?></span>
                                             </div>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
@@ -586,10 +586,10 @@ include 'views/components/header.php';
                                             <div class="change-row">
                                                 <span class="change-label"><?= htmlspecialchars($key) ?>:</span>
                                                 <?php if (!empty($oldVal)): ?>
-                                                    <span class="change-old"><?= htmlspecialchars($oldVal) ?></span>
+                                                    <span class="change-old"><?= ActivityLog::shouldRedactActivityKey($key) ? '[redacted]' : htmlspecialchars((string)$oldVal) ?></span>
                                                     <span class="change-arrow">←</span>
                                                 <?php endif; ?>
-                                                <span class="change-new"><?= htmlspecialchars($newVal) ?></span>
+                                                <span class="change-new"><?= ActivityLog::shouldRedactActivityKey($key) ? '[redacted]' : htmlspecialchars((string)$newVal) ?></span>
                                             </div>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
@@ -600,7 +600,7 @@ include 'views/components/header.php';
                                             <?php if (!empty($value)): ?>
                                             <div class="change-row">
                                                 <span class="change-label"><?= htmlspecialchars($key) ?>:</span>
-                                                <span class="change-deleted"><?= htmlspecialchars($value) ?></span>
+                                                <span class="change-deleted"><?= ActivityLog::shouldRedactActivityKey($key) ? '[redacted]' : htmlspecialchars((string)$value) ?></span>
                                             </div>
                                             <?php endif; ?>
                                         <?php endforeach; ?>

@@ -5,16 +5,20 @@ REM  يمكن جدولته في Windows Task Scheduler
 REM ═══════════════════════════════════════════════════════════════
 
 echo =============================================
-echo   النسخ الاحتياطي التلقائي - مدرسة بعشيقة
+echo   النسخ الاحتياطي التلقائي - Bashiqa School Manager
 echo   التاريخ: %date% الوقت: %time%
 echo =============================================
 echo.
 
-REM تغيير المسار لمجلد المشروع
-cd /d C:\xampp\htdocs\School-Manager\cron
+REM Run from this script directory (no hardcoded server path)
+cd /d "%~dp0"
 
-REM تشغيل سكربت PHP
-C:\xampp\php\php.exe auto_backup.php
+REM Prefer PHP_CLI from environment; otherwise "php" on PATH
+if defined PHP_CLI (
+    "%PHP_CLI%" auto_backup.php
+) else (
+    php auto_backup.php
+)
 
 REM التحقق من نجاح العملية
 if %ERRORLEVEL% == 0 (
