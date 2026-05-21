@@ -91,9 +91,10 @@ IT-Support Specialist & Junior Full-Stack Developer
 
 📧 Email: **[kontakt@aseelmarwan.de](mailto:kontakt@aseelmarwan.de)**
 
-* 🌐 Portfolio: [https://bashiqa.free.nf/](https://bashiqa.free.nf/)
-* 💼 LinkedIn
-* 🐙 GitHub
+- 🌐 Portfolio: www.aseelmarwan.de  
+- 💼 GitHub: https://github.com/aseel7marwan  
+- 💼 LinkedIn: https://www.linkedin.com/in/aseel7marwan/  
+- 📧 Email: kontakt@aseelmarwan.de  
 
 ---
 
