@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 🏫 Bashiqa School Manager
@@ -8,17 +9,17 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DFE1?style=for-the-badge&logo=javascript&logoColor=black)
 
-A learning-focused school management system designed for practicing full-stack web development concepts.
+A digital school management platform designed for educational administration, student records, and academic workflows.
 
 ---
 
 ### 🔴 Live Demo
 
-<a href="https://bashiqa.infinityfree.me/" target="_blank">
-  <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-Visit_Website-1a7431?style=for-the-badge" />
+<a href="https://bashiqa.free.nf/" target="_blank">
+  <img src="https://img.shields.io/badge/🌐_LIVE_DEMO-Visit_Website-1a7431?style=for-the-badge&logoColor=white" alt="Live Demo" />
 </a>
 
-**[https://bashiqa.infinityfree.me/](https://bashiqa.infinityfree.me/)**
+**👉 https://bashiqa.free.nf/**
 
 </div>
 
@@ -26,84 +27,77 @@ A learning-focused school management system designed for practicing full-stack w
 
 ## 📖 About The Project
 
-The **Bashiqa School Manager** is a web-based learning project built to simulate a school management system.
+The **Bashiqa School Manager** is a web-based school management system developed to support structured academic administration, including student data handling, staff management, attendance tracking, grading, and school communication.
 
-The goal of the project is to practice real-world backend and frontend concepts such as user roles, data handling, and CRUD operations in a structured environment.
-
-It includes support for **Arabic (RTL)** and **English**, and demonstrates how multi-role systems can be designed in a simple and maintainable way.
+It is designed as a practical full-stack application with a focus on usability, role-based access control, and responsive design for both desktop and mobile environments. The system supports Arabic (RTL) and English interfaces and is structured to handle real school workflows in a simple and maintainable way.
 
 ---
 
 ## ✨ Key Features
 
-| Module                     | Description                                                                 |
-| -------------------------- | --------------------------------------------------------------------------- |
-| 📰 **News Feed**           | Simple public page for announcements                                        |
-| 🔐 **Role-Based Access**   | Basic roles: Admin, Assistant, Teacher, Student                             |
-| 👨‍🎓 **Student Records**    | Manage student information (add, edit, delete)                              |
-| 👨‍🏫 **Teacher Records**    | Basic teacher profiles and subject assignment                               |
-| 📊 **Grades System**       | Simple grade input and average calculation                                   |
-| ✅ **Attendance System**    | Manual attendance tracking                                                  |
-| 📅 **Schedules**           | Weekly timetable display                                                    |
-| 🎉 **Events Module**       | Basic school events listing                                                  |
-| 📈 **Reports**             | Simple export and overview pages                                            |
-| 💾 **Backup Option**       | Manual database backup functionality                                         |
-| 🌐 **Bilingual UI**        | Arabic (RTL) and English support                                             |
-| 🌙 **Dark Mode**           | Theme toggle for UI preference                                               |
+| Module | Description |
+|--------|------------|
+| 📰 News System | School announcements and public updates |
+| 🔐 Role-Based Access | Admin, Teacher, Student, Assistant roles |
+| 👨‍🎓 Student Management | Student profiles, enrollment, and records |
+| 👨‍🏫 Teacher Management | Staff data and subject assignments |
+| 📊 Grades System | Exam results and average calculations |
+| ✅ Attendance | Daily attendance tracking system |
+| 📅 Timetable | Weekly class scheduling |
+| 🎉 Events | School events and calendar management |
+| 📋 Reports | Exportable academic reports |
+| 💾 Backup System | Manual and automated database backups |
+| 🌐 Multilingual | Arabic (RTL) + English support |
+| 🌙 UI Mode | Light/Dark mode support |
+| 📱 Responsive | Mobile-first design approach |
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** PHP (PDO with prepared statements)
-- **Database:** MySQL / MariaDB
+- **Backend:** PHP (PDO, secure queries)
+- **Database:** MySQL / MariaDB (utf8mb4)
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript
-- **Security Basics:** Password hashing (bcrypt), input validation, session handling
-- **Server:** Apache (.htaccess for routing and basic security headers)
-
----
-
-## ⚙️ Project Notes
-
-- Built as a **learning and practice project**
-- Focused on understanding **full-stack architecture basics**
-- Designed for small-scale educational use cases
-- No enterprise-level or production guarantees
+- **Security:** Password hashing, session protection, CSRF protection, basic rate limiting
+- **Server:** Apache with `.htaccess` rules (security headers + URL rewriting)
 
 ---
 
 ## 🚀 Installation
 
-1. Clone the repository:
+1. Install a local server environment (XAMPP / WAMP)
+2. Copy project into `htdocs`
+3. Import database using provided `.sql` file
+4. Configure database credentials in config file
+5. Run via:
+
 ```bash
-git clone https://github.com/aseel7marwan/School-Manager.git
-```
-
-2. Place in your local server (XAMPP / Laragon)
-
-3. Import database from `/database/structure.sql`
-
-4. Configure database connection in `config.php`
-
-5. Run on:
-```
 http://localhost/School-Manager/
-```
+````
 
 ---
 
 ## ⚖️ License
 
-> This project is a **portfolio / learning project** and is not intended for commercial use.
+> **⚠️ Portfolio Project Only**
+> This project is created for demonstration and educational purposes. All architecture and implementation are original and not intended for commercial redistribution.
 
 ---
 
 ## 👤 Author & Contact
 
-**Aseel Marwan Kheder**  
-IT-Support Specialist & Junior Web Developer
+**Aseel Marwan Kheder**
+IT-Support Specialist & Junior Full-Stack Developer
 
-📧 Email: **kontakt@aseelmarwan.de**
+📧 Email: **[kontakt@aseelmarwan.de](mailto:kontakt@aseelmarwan.de)**
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aseel7marwan)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com)
+* 🌐 Portfolio: [https://bashiqa.free.nf/](https://bashiqa.free.nf/)
+* 💼 LinkedIn
+* 🐙 GitHub
+
+---
+
+© 2026 Aseel Marwan Kheder. Built with practical engineering and clean code.
+
+```
+```
