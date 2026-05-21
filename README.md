@@ -89,7 +89,6 @@ http://localhost/School-Manager/
 **Aseel Marwan Kheder**
 IT-Support Specialist & Junior Full-Stack Developer
 
-📧 Email: **[kontakt@aseelmarwan.de](mailto:kontakt@aseelmarwan.de)**
 
 - 🌐 Portfolio: www.aseelmarwan.de  
 - 💼 GitHub: https://github.com/aseel7marwan  
